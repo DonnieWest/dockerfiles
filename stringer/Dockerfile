@@ -33,7 +33,7 @@ RUN mkdir data && \
     sed -i '/pg/d' Gemfile.lock && \
     sed -i "s/.*/$RUBY_VERSION/" .ruby-version && \
     bundle install --deployment && \
-    sed -i 's/^console/#console/' Procfile &&
+    sed -i 's/^console/#console/' Procfile && \
     echo 'clock: ruby schedule.rb' >> Procfile
 
 CMD ["./run.sh"]
